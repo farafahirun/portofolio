@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriForesight | Fara Fahirun Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- Simple Navbar -->
+<nav class="navbar-simple">
+  <div class="navbar-simple-content">
+    <!-- Back Button -->
+    <button onclick="history.back()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      <span>Back</span>
+    </button>
+    
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <i class="fas fa-sun" id="icon-sun"></i>
+      <i class="fas fa-moon hidden" id="icon-moon"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<section class="pt-24 pb-16">
+  <div class="container-custom max-w-4xl">
+    
+    <!-- Header -->
+    <div class="mb-8">
+      <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+        <div>
+          <h1 class="text-4xl font-bold mb-2">AgriForesight</h1>
+          <div class="flex flex-wrap items-center gap-3 text-secondary">
+            <span class="flex items-center gap-2">
+              <i class="fas fa-calendar"></i>
+              2025
+            </span>
+            <span class="project-status status-ongoing">Ongoing</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="project-category">AI</span>
+        <span class="project-category">Frontend</span>
+        <span class="project-category">Data</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-info-circle mr-2"></i>Overview
+      </h2>
+      <p class="text-secondary leading-relaxed">
+        Sistem prediksi berbasis machine learning yang membantu petani dalam mengambil keputusan tentang waktu tanam, jenis tanaman, dan estimasi hasil panen. AgriForesight menggunakan data historis cuaca, jenis tanah, dan pola tanam untuk memberikan rekomendasi yang akurat.
+      </p>
+    </div>
+
+    <!-- Problem -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-exclamation-triangle mr-2"></i>Problem
+      </h2>
+      <p class="text-secondary leading-relaxed mb-4">
+        Petani di Sulawesi Selatan sering menghadapi kesulitan dalam menentukan waktu tanam yang tepat dan memilih jenis tanaman yang sesuai dengan kondisi lahan mereka. Hal ini menyebabkan:
+      </p>
+      <ul class="list-disc list-inside text-secondary space-y-2">
+        <li>Kegagalan panen akibat waktu tanam yang tidak tepat</li>
+        <li>Pemilihan tanaman yang tidak sesuai dengan kondisi tanah dan iklim</li>
+        <li>Kerugian finansial yang signifikan bagi petani</li>
+        <li>Kurangnya data dan informasi yang dapat diakses untuk pengambilan keputusan</li>
+      </ul>
+    </div>
+
+    <!-- Solution -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-lightbulb mr-2"></i>Solution
+      </h2>
+      <p class="text-secondary leading-relaxed mb-4">
+        AgriForesight menyediakan platform berbasis AI yang dapat:
+      </p>
+      <ul class="list-disc list-inside text-secondary space-y-2">
+        <li>Memprediksi hasil panen berdasarkan data historis dan kondisi saat ini</li>
+        <li>Memberikan rekomendasi waktu tanam optimal</li>
+        <li>Menyarankan jenis tanaman yang paling cocok untuk lahan tertentu</li>
+        <li>Menyediakan dashboard interaktif untuk monitoring kondisi lahan</li>
+        <li>Mengirimkan notifikasi dan alert terkait kondisi cuaca dan hama</li>
+      </ul>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-code mr-2"></i>Tech Stack
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="tech-stack-item">
+          <i class="fab fa-python text-2xl mb-2"></i>
+          <div class="font-semibold">Python</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-flask text-2xl mb-2"></i>
+          <div class="font-semibold">Flask</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-brain text-2xl mb-2"></i>
+          <div class="font-semibold">TensorFlow</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fab fa-react text-2xl mb-2"></i>
+          <div class="font-semibold">React</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-database text-2xl mb-2"></i>
+          <div class="font-semibold">MySQL</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-chart-line text-2xl mb-2"></i>
+          <div class="font-semibold">Scikit-learn</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outcome -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-trophy mr-2"></i>Hasil & Outcome
+      </h2>
+      <div class="grid md:grid-cols-3 gap-4 mb-4">
+        <div class="stat-card">
+          <div class="stat-number">87%</div>
+          <div class="stat-label">Akurasi Prediksi</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Petani Pengguna</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Daerah Pilot</div>
+        </div>
+      </div>
+      <p class="text-secondary leading-relaxed">
+        Sistem telah diujicoba di 3 daerah di Sulawesi Selatan dengan hasil yang menjanjikan. Petani yang menggunakan AgriForesight melaporkan peningkatan produktivitas dan pengurangan risiko kegagalan panen.
+      </p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap gap-4 mb-8">
+      <a href="https://github.com/farafahirun/agriforesight" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github mr-2"></i>
+        View on GitHub
+      </a>
+      <span class="btn-secondary opacity-50 cursor-not-allowed">
+        <i class="fas fa-external-link-alt mr-2"></i>
+        Demo (Coming Soon)
+      </span>
+    </div>
+
+    <!-- Related Projects -->
+    <div class="card">
+      <h2 class="text-2xl font-bold mb-6 accent-text">
+        <i class="fas fa-project-diagram mr-2"></i>Related Projects
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="calfood.html" class="project-card">
+          <h3 class="project-title">CalFood</h3>
+          <div class="project-year mb-2">2024</div>
+          <div class="flex gap-2 mb-3">
+            <span class="project-category">AI</span>
+            <span class="project-category">Data</span>
+          </div>
+          <p class="text-secondary text-sm">Aplikasi estimasi kalori makanan menggunakan computer vision dan deep learning.</p>
+        </a>
+        
+        <a href="data-viz-dashboard.html" class="project-card">
+          <h3 class="project-title">Data Visualization Dashboard</h3>
+          <div class="project-year mb-2">2024</div>
+          <div class="flex gap-2 mb-3">
+            <span class="project-category">Data</span>
+            <span class="project-category">Frontend</span>
+          </div>
+          <p class="text-secondary text-sm">Interactive dashboard untuk visualisasi data bisnis dengan multiple data sources.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="project-navbar.js"></script>
+
+</body>
+</html>

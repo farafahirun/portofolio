@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalFood | Fara Fahirun Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- Simple Navbar -->
+<nav class="navbar-simple">
+  <div class="navbar-simple-content">
+    <!-- Back Button -->
+    <button onclick="history.back()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      <span>Back</span>
+    </button>
+    
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <i class="fas fa-sun" id="icon-sun"></i>
+      <i class="fas fa-moon hidden" id="icon-moon"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<section class="pt-24 pb-16">
+  <div class="container-custom max-w-4xl">
+    
+    <!-- Header -->
+    <div class="mb-8">
+      <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+        <div>
+          <h1 class="text-4xl font-bold mb-2">CalFood</h1>
+          <div class="flex flex-wrap items-center gap-3 text-secondary">
+            <span class="flex items-center gap-2">
+              <i class="fas fa-calendar"></i>
+              2024
+            </span>
+            <span class="project-status status-finished">Finished</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="project-category">AI</span>
+        <span class="project-category">Data</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-info-circle mr-2"></i>Overview
+      </h2>
+      <p class="text-secondary leading-relaxed">
+        CalFood adalah mobile dan web application yang dapat mendeteksi jenis makanan dan mengestimasi kandungan kalorinya melalui foto. Aplikasi ini menggunakan teknologi computer vision dan deep learning untuk memberikan informasi nutrisi yang akurat dan cepat.
+      </p>
+    </div>
+
+    <!-- Problem -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-exclamation-triangle mr-2"></i>Problem
+      </h2>
+      <p class="text-secondary leading-relaxed mb-4">
+        Masyarakat yang sedang menjalani program diet sering kesulitan dalam menghitung kalori makanan yang mereka konsumsi. Tantangan utama meliputi:
+      </p>
+      <ul class="list-disc list-inside text-secondary space-y-2">
+        <li>Tidak adanya cara mudah untuk mengestimasi kalori makanan secara cepat</li>
+        <li>Database makanan Indonesia yang terbatas di aplikasi existing</li>
+        <li>Proses manual yang memakan waktu dan tidak akurat</li>
+        <li>Kesulitan mengidentifikasi komposisi makanan campuran</li>
+      </ul>
+    </div>
+
+    <!-- Solution -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-lightbulb mr-2"></i>Solution
+      </h2>
+      <p class="text-secondary leading-relaxed mb-4">
+        CalFood menyediakan solusi praktis dengan fitur:
+      </p>
+      <ul class="list-disc list-inside text-secondary space-y-2">
+        <li>Deteksi otomatis jenis makanan melalui foto dengan computer vision</li>
+        <li>Estimasi kalori dan nutrisi (protein, karbohidrat, lemak) secara akurat</li>
+        <li>Database lengkap 500+ jenis makanan Indonesia</li>
+        <li>History tracking untuk monitoring konsumsi harian</li>
+        <li>Rekomendasi menu berdasarkan target kalori</li>
+      </ul>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-code mr-2"></i>Tech Stack
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="tech-stack-item">
+          <i class="fab fa-python text-2xl mb-2"></i>
+          <div class="font-semibold">Python</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-bolt text-2xl mb-2"></i>
+          <div class="font-semibold">FastAPI</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-fire text-2xl mb-2"></i>
+          <div class="font-semibold">PyTorch</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fab fa-react text-2xl mb-2"></i>
+          <div class="font-semibold">React</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-eye text-2xl mb-2"></i>
+          <div class="font-semibold">OpenCV</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-database text-2xl mb-2"></i>
+          <div class="font-semibold">Firebase</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outcome -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-trophy mr-2"></i>Hasil & Outcome
+      </h2>
+      <div class="grid md:grid-cols-3 gap-4 mb-4">
+        <div class="stat-card">
+          <div class="stat-number">85%</div>
+          <div class="stat-label">Akurasi Deteksi</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Jenis Makanan</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1000+</div>
+          <div class="stat-label">Users (Beta)</div>
+        </div>
+      </div>
+      <p class="text-secondary leading-relaxed">
+        Aplikasi telah melewati fase beta testing dengan feedback positif dari pengguna. Model machine learning berhasil mencapai akurasi 85% dalam mendeteksi dan mengestimasi kalori makanan Indonesia.
+      </p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap gap-4 mb-8">
+      <a href="https://github.com/farafahirun/calfood" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github mr-2"></i>
+        View on GitHub
+      </a>
+      <a href="https://calfood-demo.vercel.app" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-external-link-alt mr-2"></i>
+        View Demo
+      </a>
+    </div>
+
+    <!-- Related Projects -->
+    <div class="card">
+      <h2 class="text-2xl font-bold mb-6 accent-text">
+        <i class="fas fa-project-diagram mr-2"></i>Related Projects
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="agriforesight.html" class="project-card">
+          <h3 class="project-title">AgriForesight</h3>
+          <div class="project-year mb-2">2025</div>
+          <div class="flex gap-2 mb-3">
+            <span class="project-category">AI</span>
+            <span class="project-category">Frontend</span>
+            <span class="project-category">Data</span>
+          </div>
+          <p class="text-secondary text-sm">AI-powered agricultural forecasting system untuk prediksi hasil panen dan rekomendasi penanaman.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="project-navbar.js"></script>
+
+</body>
+</html>

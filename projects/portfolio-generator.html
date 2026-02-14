@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Generator | Fara Fahirun Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- Simple Navbar -->
+<nav class="navbar-simple">
+  <div class="navbar-simple-content">
+    <!-- Back Button -->
+    <button onclick="history.back()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      <span>Back</span>
+    </button>
+    
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <i class="fas fa-sun" id="icon-sun"></i>
+      <i class="fas fa-moon hidden" id="icon-moon"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<section class="pt-24 pb-16">
+  <div class="container-custom max-w-4xl">
+    
+    <!-- Header -->
+    <div class="mb-8">
+      <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+        <div>
+          <h1 class="text-4xl font-bold mb-2">AI Portfolio Generator</h1>
+          <div class="flex flex-wrap items-center gap-3 text-secondary">
+            <span class="flex items-center gap-2">
+              <i class="fas fa-calendar"></i>
+              2024
+            </span>
+            <span class="project-status status-ongoing">Ongoing</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="project-category">AI</span>
+        <span class="project-category">Frontend</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-info-circle mr-2"></i>Overview
+      </h2>
+      <p class="text-secondary leading-relaxed">
+        AI-powered tool untuk generate portfolio website secara otomatis berdasarkan data pengguna. Menggunakan natural language processing dan template generation untuk membuat portfolio professional dalam hitungan menit.
+      </p>
+    </div>
+
+    <!-- Problem -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-exclamation-triangle mr-2"></i>Problem
+      </h2>
+      <p class="text-secondary leading-relaxed mb-4">
+        Banyak profesional yang membutuhkan portfolio website tapi menghadapi kendala:
+      </p>
+      <ul class="list-disc list-inside text-secondary space-y-2">
+        <li>Tidak memiliki skill coding untuk membuat portfolio sendiri</li>
+        <li>Biaya hire web developer yang mahal</li>
+        <li>Platform website builder existing yang terbatas customization-nya</li>
+        <li>Waktu yang dibutuhkan untuk design dan development cukup lama</li>
+        <li>Kesulitan menulis copy dan deskripsi yang menjual</li>
+      </ul>
+    </div>
+
+    <!-- Solution -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-lightbulb mr-2"></i>Solution
+      </h2>
+      <p class="text-secondary leading-relaxed mb-4">
+        AI Portfolio Generator menawarkan solusi praktis:
+      </p>
+      <ul class="list-disc list-inside text-secondary space-y-2">
+        <li>AI-powered content generation untuk about, projects, dan skills section</li>
+        <li>10+ professional templates dengan berbagai style dan industri</li>
+        <li>Drag-and-drop customization tanpa perlu coding</li>
+        <li>Automatic resume parsing untuk extract informasi dari CV</li>
+        <li>SEO optimization dan performance best practices</li>
+        <li>One-click deployment ke custom domain atau subdomain</li>
+      </ul>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-code mr-2"></i>Tech Stack
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="tech-stack-item">
+          <i class="fab fa-react text-2xl mb-2"></i>
+          <div class="font-semibold">Next.js</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-brain text-2xl mb-2"></i>
+          <div class="font-semibold">OpenAI API</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fab fa-python text-2xl mb-2"></i>
+          <div class="font-semibold">Python</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-wind text-2xl mb-2"></i>
+          <div class="font-semibold">Tailwind CSS</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-database text-2xl mb-2"></i>
+          <div class="font-semibold">PostgreSQL</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-cloud text-2xl mb-2"></i>
+          <div class="font-semibold">Vercel</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outcome -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-trophy mr-2"></i>Hasil & Outcome
+      </h2>
+      <div class="grid md:grid-cols-3 gap-4 mb-4">
+        <div class="stat-card">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Beta Users</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5 Min</div>
+          <div class="stat-label">Avg. Generation Time</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4.5/5</div>
+          <div class="stat-label">User Satisfaction</div>
+        </div>
+      </div>
+      <p class="text-secondary leading-relaxed">
+        Dalam fase beta testing dengan 100+ pengguna. AI content generation menghasilkan copy berkualitas tinggi yang hanya memerlukan minor editing. Target launch publik Q3 2025.
+      </p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap gap-4 mb-8">
+      <a href="https://github.com/farafahirun/portfolio-generator" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github mr-2"></i>
+        View on GitHub
+      </a>
+      <a href="https://portfolio-gen.vercel.app" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-external-link-alt mr-2"></i>
+        View Demo
+      </a>
+    </div>
+
+    <!-- Related Projects -->
+    <div class="card">
+      <h2 class="text-2xl font-bold mb-6 accent-text">
+        <i class="fas fa-project-diagram mr-2"></i>Related Projects
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="agriforesight.html" class="project-card">
+          <h3 class="project-title">AgriForesight</h3>
+          <div class="project-year mb-2">2025</div>
+          <div class="flex gap-2 mb-3">
+            <span class="project-category">AI</span>
+            <span class="project-category">Frontend</span>
+            <span class="project-category">Data</span>
+          </div>
+          <p class="text-secondary text-sm">AI-powered agricultural forecasting system untuk prediksi hasil panen dan rekomendasi penanaman.</p>
+        </a>
+        <a href="sentiment-analysis.html" class="project-card">
+          <h3 class="project-title">Sentiment Analysis Tool</h3>
+          <div class="project-year mb-2">2023</div>
+          <div class="flex gap-2 mb-3">
+            <span class="project-category">AI</span>
+            <span class="project-category">Data</span>
+          </div>
+          <p class="text-secondary text-sm">Tool untuk analisis sentimen social media menggunakan NLP dan machine learning.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="project-navbar.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar Test</title>
+  <style>
+    body { 
+      margin: 0; 
+      font-family: Arial;
+      min-height: 200vh;
+      background: linear-gradient(180deg, #e0e5e9 0%, #f5f7f9 100%);
+    }
+    .test-section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #004E64;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Copy navbar from index.html -->
+<nav class="navbar-glass fixed top-0 w-full z-50">
+  <div class="container-custom">
+    <div class="flex justify-between items-center h-16 md:h-20">
+      <a href="#home" class="accent-text text-xl md:text-2xl font-bold hover:opacity-80 transition-opacity">
+        <span>Fara Fahirun</span>
+      </a>
+      
+      <div class="flex items-center gap-3 md:gap-6">
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center gap-2 lg:gap-4">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle">
+          <i class="fas fa-sun"></i>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden">
+    <div class="container-custom">
+      <div class="mobile-menu">
+        <a href="#home" class="mobile-nav-link">
+          <i class="fas fa-home mr-2"></i>Home
+        </a>
+        <a href="#about" class="mobile-nav-link">
+          <i class="fas fa-user mr-2"></i>About
+        </a>
+        <a href="#projects" class="mobile-nav-link">
+          <i class="fas fa-briefcase mr-2"></i>Projects
+        </a>
+        <a href="#skills" class="mobile-nav-link">
+          <i class="fas fa-code mr-2"></i>Skills
+        </a>
+        <a href="#testimonials" class="mobile-nav-link">
+          <i class="fas fa-star mr-2"></i>Testimonials
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="home" class="test-section" style="padding-top: 80px;">
+  🏠 Home Section
+</div>
+
+<div id="about" class="test-section">
+  👤 About Section
+</div>
+
+<div id="projects" class="test-section">
+  💼 Projects Section
+</div>
+
+<script>
+// Mobile menu
+const menuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = menuBtn?.querySelector('i');
+
+menuBtn?.addEventListener('click', () => {
+  const isHidden = mobileMenu.classList.toggle('hidden');
+  if (menuIcon) {
+    if (isHidden) {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    } else {
+      menuIcon.classList.remove('fa-bars');
+      menuIcon.classList.add('fa-times');
+    }
+  }
+});
+
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    if (menuIcon) {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    }
+  });
+});
+
+document.addEventListener('click', (e) => {
+  if (!menuBtn?.contains(e.target) && !mobileMenu?.contains(e.target)) {
+    mobileMenu?.classList.add('hidden');
+    if (menuIcon) {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    }
+  }
+});
+
+// Navbar scroll
+const navbar = document.querySelector('.navbar-glass');
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 50) {
+    navbar?.classList.add('scrolled');
+  } else {
+    navbar?.classList.remove('scrolled');
+  }
+});
+
+// Theme toggle
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle?.addEventListener('click', () => {
+  document.documentElement.toggleAttribute('data-theme', 'dark');
+});
+</script>
+
+</body>
+</html>

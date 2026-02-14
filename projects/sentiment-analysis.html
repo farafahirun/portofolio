@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentiment Analysis Tool | Fara Fahirun Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- Simple Navbar -->
+<nav class="navbar-simple">
+  <div class="navbar-simple-content">
+    <!-- Back Button -->
+    <button onclick="history.back()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      <span>Back</span>
+    </button>
+    
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <i class="fas fa-sun" id="icon-sun"></i>
+      <i class="fas fa-moon hidden" id="icon-moon"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<section class="pt-24 pb-16">
+  <div class="container-custom max-w-4xl">
+    
+    <!-- Header -->
+    <div class="mb-8">
+      <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+        <div>
+          <h1 class="text-4xl font-bold mb-2">Sentiment Analysis Tool</h1>
+          <div class="flex flex-wrap items-center gap-3 text-secondary">
+            <span class="flex items-center gap-2">
+              <i class="fas fa-calendar"></i>
+              2023
+            </span>
+            <span class="project-status status-finished">Finished</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="project-category">AI</span>
+        <span class="project-category">Data</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-info-circle mr-2"></i>Overview
+      </h2>
+      <p class="text-secondary leading-relaxed">
+        Tool untuk analisis sentimen social media menggunakan Natural Language Processing (NLP) dan machine learning. Sistem dapat mengklasifikasikan sentimen (positif, negatif, netral) dari teks berbahasa Indonesia dan Inggris dengan akurasi tinggi.
+      </p>
+    </div>
+
+    <!-- Problem -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-exclamation-triangle mr-2"></i>Problem
+      </h2>
+      <p class="text-secondary leading-relaxed mb-4">
+        Brand dan perusahaan kesulitan memantau sentiment public terhadap produk mereka:
+      </p>
+      <ul class="list-disc list-inside text-secondary space-y-2">
+        <li>Volume mention di social media yang terlalu banyak untuk di-track manual</li>
+        <li>Kesulitan mengidentifikasi isu atau keluhan customer secara real-time</li>
+        <li>Tidak ada tool sentiment analysis yang support bahasa Indonesia dengan baik</li>
+        <li>Proses manual memakan waktu dan subjektif</li>
+        <li>Sulit mendapatkan actionable insights dari customer feedback</li>
+      </ul>
+    </div>
+
+    <!-- Solution -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-lightbulb mr-2"></i>Solution
+      </h2>
+      <p class="text-secondary leading-relaxed mb-4">
+        Sentiment Analysis Tool dengan kemampuan:
+      </p>
+      <ul class="list-disc list-inside text-secondary space-y-2">
+        <li>Multi-language support (Indonesia & Inggris) dengan model terpisah</li>
+        <li>Real-time sentiment classification dengan confidence score</li>
+        <li>Batch processing untuk analyze ribuan text sekaligus</li>
+        <li>Aspect-based sentiment analysis untuk identify sentiment per fitur produk</li>
+        <li>Visualization dashboard dengan trend analysis dan word cloud</li>
+        <li>API integration untuk connect dengan social media platforms</li>
+      </ul>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-code mr-2"></i>Tech Stack
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="tech-stack-item">
+          <i class="fab fa-python text-2xl mb-2"></i>
+          <div class="font-semibold">Python</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-brain text-2xl mb-2"></i>
+          <div class="font-semibold">NLTK</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-bolt text-2xl mb-2"></i>
+          <div class="font-semibold">Transformers</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-chart-line text-2xl mb-2"></i>
+          <div class="font-semibold">Pandas</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fab fa-react text-2xl mb-2"></i>
+          <div class="font-semibold">React</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-bolt text-2xl mb-2"></i>
+          <div class="font-semibold">FastAPI</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outcome -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-trophy mr-2"></i>Hasil & Outcome
+      </h2>
+      <div class="grid md:grid-cols-3 gap-4 mb-4">
+        <div class="stat-card">
+          <div class="stat-number">89%</div>
+          <div class="stat-label">Model Accuracy</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">10K+</div>
+          <div class="stat-label">Texts Analyzed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3s</div>
+          <div class="stat-label">Avg. Processing Time</div>
+        </div>
+      </div>
+      <p class="text-secondary leading-relaxed">
+        Model fine-tuned menggunakan dataset 50K tweets Indonesia mencapai akurasi 89%. Tool telah digunakan oleh 3 brand untuk monitoring social media sentiment dengan hasil yang memuaskan.
+      </p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap gap-4 mb-8">
+      <a href="https://github.com/farafahirun/sentiment-analysis" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github mr-2"></i>
+        View on GitHub
+      </a>
+      <a href="https://sentiment-tool-demo.vercel.app" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-external-link-alt mr-2"></i>
+        View Demo
+      </a>
+    </div>
+
+    <!-- Related Projects -->
+    <div class="card">
+      <h2 class="text-2xl font-bold mb-6 accent-text">
+        <i class="fas fa-project-diagram mr-2"></i>Related Projects
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="calfood.html" class="project-card">
+          <h3 class="project-title">CalFood</h3>
+          <div class="project-year mb-2">2024</div>
+          <div class="flex gap-2 mb-3">
+            <span class="project-category">AI</span>
+            <span class="project-category">Data</span>
+          </div>
+          <p class="text-secondary text-sm">AI-powered food detection dan calorie estimation dari foto makanan.</p>
+        </a>
+        <a href="data-viz-dashboard.html" class="project-card">
+          <h3 class="project-title">Data Visualization Dashboard</h3>
+          <div class="project-year mb-2">2024</div>
+          <div class="flex gap-2 mb-3">
+            <span class="project-category">Data</span>
+            <span class="project-category">Frontend</span>
+          </div>
+          <p class="text-secondary text-sm">Interactive dashboard untuk visualisasi data bisnis real-time dengan berbagai chart.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="project-navbar.js"></script>
+
+</body>
+</html>

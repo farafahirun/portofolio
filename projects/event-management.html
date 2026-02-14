@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Management System | Fara Fahirun Portfolio</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- Simple Navbar -->
+<nav class="navbar-simple">
+  <div class="navbar-simple-content">
+    <!-- Back Button -->
+    <button onclick="history.back()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      <span>Back</span>
+    </button>
+    
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <i class="fas fa-sun" id="icon-sun"></i>
+      <i class="fas fa-moon hidden" id="icon-moon"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<section class="pt-24 pb-16">
+  <div class="container-custom max-w-4xl">
+    
+    <!-- Header -->
+    <div class="mb-8">
+      <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+        <div>
+          <h1 class="text-4xl font-bold mb-2">Event Management System</h1>
+          <div class="flex flex-wrap items-center gap-3 text-secondary">
+            <span class="flex items-center gap-2">
+              <i class="fas fa-calendar"></i>
+              2023
+            </span>
+            <span class="project-status status-finished">Finished</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="project-category">Frontend</span>
+        <span class="project-category">UI/UX</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-info-circle mr-2"></i>Overview
+      </h2>
+      <p class="text-secondary leading-relaxed">
+        Sistem manajemen event comprehensive untuk event organizer yang mencakup registrasi peserta, ticketing, check-in system, dan analitik event. Platform dirancang untuk mengelola berbagai jenis event dari seminar, workshop, hingga konferensi skala besar.
+      </p>
+    </div>
+
+    <!-- Problem -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-exclamation-triangle mr-2"></i>Problem
+      </h2>
+      <p class="text-secondary leading-relaxed mb-4">
+        Event organizer menghadapi berbagai tantangan dalam mengelola event:
+      </p>
+      <ul class="list-disc list-inside text-secondary space-y-2">
+        <li>Proses registrasi manual yang memakan waktu dan prone to error</li>
+        <li>Kesulitan tracking attendance dan check-in peserta</li>
+        <li>Tidak ada sistem terpusat untuk mengelola multiple events</li>
+        <li>Sulit mendapatkan insights dan analytics dari event yang telah dijalankan</li>
+        <li>Komunikasi dengan peserta yang tidak efektif</li>
+      </ul>
+    </div>
+
+    <!-- Solution -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-lightbulb mr-2"></i>Solution
+      </h2>
+      <p class="text-secondary leading-relaxed mb-4">
+        Platform event management all-in-one dengan fitur:
+      </p>
+      <ul class="list-disc list-inside text-secondary space-y-2">
+        <li>Online registration form dengan custom fields dan payment integration</li>
+        <li>QR code ticketing system untuk fast check-in</li>
+        <li>Multi-event management dashboard</li>
+        <li>Automated email notifications dan reminders untuk peserta</li>
+        <li>Real-time attendance tracking dan analytics</li>
+        <li>Certificate generation dan distribution otomatis</li>
+        <li>Mobile app untuk organizer melakukan check-in on-site</li>
+      </ul>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-code mr-2"></i>Tech Stack
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="tech-stack-item">
+          <i class="fab fa-react text-2xl mb-2"></i>
+          <div class="font-semibold">React</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fab fa-node-js text-2xl mb-2"></i>
+          <div class="font-semibold">Node.js</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-wind text-2xl mb-2"></i>
+          <div class="font-semibold">Tailwind CSS</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-database text-2xl mb-2"></i>
+          <div class="font-semibold">MongoDB</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-qrcode text-2xl mb-2"></i>
+          <div class="font-semibold">QR Code API</div>
+        </div>
+        <div class="tech-stack-item">
+          <i class="fas fa-envelope text-2xl mb-2"></i>
+          <div class="font-semibold">SendGrid</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outcome -->
+    <div class="card mb-8">
+      <h2 class="text-2xl font-bold mb-4 accent-text">
+        <i class="fas fa-trophy mr-2"></i>Hasil & Outcome
+      </h2>
+      <div class="grid md:grid-cols-3 gap-4 mb-4">
+        <div class="stat-card">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Events Managed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5000+</div>
+          <div class="stat-label">Total Attendees</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">90%</div>
+          <div class="stat-label">Time Saved</div>
+        </div>
+      </div>
+      <p class="text-secondary leading-relaxed">
+        Sistem berhasil mengurangi waktu setup dan management event hingga 90%. Check-in process yang tadinya memakan 30 menit untuk 100 peserta, kini hanya 5 menit dengan QR code system.
+      </p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-wrap gap-4 mb-8">
+      <a href="https://github.com/farafahirun/event-management" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github mr-2"></i>
+        View on GitHub
+      </a>
+      <a href="https://eventms-demo.vercel.app" class="btn-secondary" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-external-link-alt mr-2"></i>
+        View Demo
+      </a>
+    </div>
+
+    <!-- Related Projects -->
+    <div class="card">
+      <h2 class="text-2xl font-bold mb-6 accent-text">
+        <i class="fas fa-project-diagram mr-2"></i>Related Projects
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="flashfield.html" class="project-card">
+          <h3 class="project-title">FlashField</h3>
+          <div class="project-year mb-2">2024</div>
+          <div class="flex gap-2 mb-3">
+            <span class="project-category">Frontend</span>
+            <span class="project-category">UI/UX</span>
+          </div>
+          <p class="text-secondary text-sm">Platform manajemen lapangan olahraga dengan booking system dan payment integration.</p>
+        </a>
+        <a href="ecommerce-laravel.html" class="project-card">
+          <h3 class="project-title">E-Commerce Platform</h3>
+          <div class="project-year mb-2">2023</div>
+          <div class="flex gap-2 mb-3">
+            <span class="project-category">Frontend</span>
+            <span class="project-category">Data</span>
+          </div>
+          <p class="text-secondary text-sm">Platform e-commerce dengan fitur recommendation engine dan payment gateway.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="project-navbar.js"></script>
+
+</body>
+</html>

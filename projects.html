@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Projects | Fara Rahmasari Fahirun</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Hero Section with Gradient */
+    .projects-hero {
+      background: linear-gradient(135deg, 
+        rgba(29, 170, 184, 0.1) 0%,
+        rgba(29, 170, 184, 0.05) 50%,
+        transparent 100%);
+      padding: clamp(2rem, 5vw, 3rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+      border-bottom: 1px solid rgba(29, 170, 184, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .projects-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(29, 170, 184, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    
+    [data-theme="dark"] .projects-hero {
+      background: linear-gradient(135deg, 
+        rgba(29, 170, 184, 0.08) 0%,
+        rgba(29, 170, 184, 0.03) 50%,
+        transparent 100%);
+    }
+    
+    .projects-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .projects-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: clamp(0.75rem, 2vw, 1rem);
+    }
+    
+    .projects-hero p {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.6;
+    }
+    
+    /* Search Bar */
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto clamp(1.5rem, 3vw, 2rem);
+      position: relative;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 1rem 3.5rem 1rem 3.5rem;
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: 9999px;
+      font-size: 1rem;
+      color: var(--text-primary);
+      transition: all var(--transition-base);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(29, 170, 184, 0.1), var(--shadow-md);
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      pointer-events: none;
+    }
+    
+    .search-clear {
+      position: absolute;
+      right: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 1.125rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      opacity: 0;
+      transition: all var(--transition-base);
+    }
+    
+    .search-clear.visible {
+      opacity: 1;
+    }
+    
+    .search-clear:hover {
+      color: var(--accent);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    /* Quick Filters - Chips Style */
+    .quick-filters {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    }
+    
+    .filter-chip {
+      padding: 0.625rem 1.25rem;
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: 9999px;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+    
+    .filter-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .filter-chip.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .filter-chip i {
+      font-size: 0.875rem;
+    }
+    
+    .filter-chip .count {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    
+    .filter-chip.active .count {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    
+    /* Advanced Filters Toggle */
+    .advanced-filters-toggle {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .toggle-btn {
+      background: none;
+      border: 2px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .toggle-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(29, 170, 184, 0.05);
+    }
+    
+    .toggle-btn i {
+      transition: transform var(--transition-base);
+    }
+    
+    .toggle-btn.active i {
+      transform: rotate(180deg);
+    }
+    
+    /* Enhanced Filter Container */
+    .filter-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: clamp(1.5rem, 3vw, 2rem);
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+    }
+    
+    .filter-container.visible {
+      max-height: 500px;
+      opacity: 1;
+    }
+    
+    .filter-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+    
+    .filter-header i {
+      color: var(--accent);
+      font-size: 1.125rem;
+    }
+    
+    /* Enhanced Stats */
+    .stats-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+    }
+    
+    .stat-showcase-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+    
+    .stat-showcase-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+      transform: scaleX(0);
+      transition: transform var(--transition-base);
+    }
+    
+    .stat-showcase-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .stat-showcase-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent);
+    }
+    
+    .stat-showcase-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1rem;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      color: white;
+      box-shadow: 0 8px 16px rgba(29, 170, 184, 0.25);
+    }
+    
+    .stat-showcase-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-showcase-label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    /* Enhanced Project Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: clamp(1.25rem, 3vw, 1.75rem);
+      margin-bottom: clamp(2rem, 5vw, 3rem);
+    }
+    
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      border-color: var(--accent);
+    }
+    
+    [data-theme="dark"] .project-card:hover {
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: clamp(3rem, 8vw, 5rem) 1rem;
+    }
+    
+    .empty-state-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, rgba(29, 170, 184, 0.1) 0%, rgba(29, 170, 184, 0.05) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--accent);
+    }
+    
+    .empty-state h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .empty-state p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    /* Loading Animation */
+    .loading-skeleton {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .skeleton-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      height: 300px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Simple Navbar -->
+<nav class="navbar-simple">
+  <div class="navbar-simple-content">
+    <!-- Back Button -->
+    <button onclick="history.back()" class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      <span>Back</span>
+    </button>
+    
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <i class="fas fa-sun" id="icon-sun"></i>
+      <i class="fas fa-moon hidden" id="icon-moon"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<section id="projects">
+  <!-- Hero Section -->
+  <div class="projects-hero">
+    <div class="container-custom projects-hero-content">
+      <h1>Project Showcase</h1>
+      <p>Explore my collection of projects spanning web development, AI/ML, and data science</p>
+      
+      <!-- Search Bar -->
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="Search projects by name, technology, or description..."
+        >
+        <button id="search-clear" class="search-clear">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <!-- Quick Filters -->
+      <div class="quick-filters">
+        <button class="filter-chip active" data-filter="all">
+          <i class="fas fa-th"></i>
+          <span>All Projects</span>
+          <span class="count" id="count-all">0</span>
+        </button>
+        <button class="filter-chip" data-filter="Ongoing">
+          <i class="fas fa-spinner"></i>
+          <span>Ongoing</span>
+          <span class="count" id="count-ongoing">0</span>
+        </button>
+        <button class="filter-chip" data-filter="Finished">
+          <i class="fas fa-check-circle"></i>
+          <span>Completed</span>
+          <span class="count" id="count-finished">0</span>
+        </button>
+        <button class="filter-chip" data-filter="Frontend">
+          <i class="fas fa-code"></i>
+          <span>Frontend</span>
+          <span class="count" id="count-frontend">0</span>
+        </button>
+        <button class="filter-chip" data-filter="AI">
+          <i class="fas fa-brain"></i>
+          <span>AI & ML</span>
+          <span class="count" id="count-ai">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-custom">
+    <!-- Advanced Filters Toggle -->
+    <div class="advanced-filters-toggle">
+      <button id="toggle-filters" class="toggle-btn">
+        <i class="fas fa-sliders-h"></i>
+        <span>Advanced Filters</span>
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+
+    <!-- Advanced Filters -->
+    <div class="filter-container" id="filter-container">
+        <div class="filter-header">
+          <i class="fas fa-filter"></i>
+          <span>Filter Projects</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+          <!-- Sort -->
+          <div class="filter-group">
+            <label class="filter-label">
+              <i class="fas fa-sort"></i>
+              Sort By
+            </label>
+            <select id="filter-sort" class="filter-select">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+            </select>
+          </div>
+          
+          <!-- Status -->
+          <div class="filter-group">
+            <label class="filter-label">
+              <i class="fas fa-tasks"></i>
+              Status
+            </label>
+            <select id="filter-status" class="filter-select">
+              <option value="all">All Status</option>
+              <option value="Ongoing">Ongoing</option>
+              <option value="Finished">Finished</option>
+            </select>
+          </div>
+          
+          <!-- Category -->
+          <div class="filter-group">
+            <label class="filter-label">
+              <i class="fas fa-tag"></i>
+              Category
+            </label>
+            <select id="filter-category" class="filter-select">
+              <option value="all">All Categories</option>
+              <option value="Frontend">Frontend</option>
+              <option value="AI">AI</option>
+              <option value="Data">Data</option>
+              <option value="UI/UX">UI/UX</option>
+            </select>
+          </div>
+          
+          <!-- Year -->
+          <div class="filter-group">
+            <label class="filter-label">
+              <i class="fas fa-calendar"></i>
+              Year
+            </label>
+            <select id="filter-year" class="filter-select">
+              <option value="all">All Years</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div id="all-projects-grid" class="projects-grid">
+      <!-- Populated by JavaScript -->
+    </div>
+
+    <!-- Enhanced Statistics -->
+    <div class="stats-showcase">
+      <div class="stat-showcase-card">
+        <div class="stat-showcase-icon">
+          <i class="fas fa-folder-open"></i>
+        </div>
+        <div class="stat-showcase-number" id="total-projects-count">0</div>
+        <div class="stat-showcase-label">Total Projects</div>
+      </div>
+      
+      <div class="stat-showcase-card">
+        <div class="stat-showcase-icon">
+          <i class="fas fa-spinner fa-pulse"></i>
+        </div>
+        <div class="stat-showcase-number" id="ongoing-count">0</div>
+        <div class="stat-showcase-label">In Progress</div>
+      </div>
+      
+      <div class="stat-showcase-card">
+        <div class="stat-showcase-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="stat-showcase-number" id="finished-count">0</div>
+        <div class="stat-showcase-label">Completed</div>
+      </div>
+      
+      <div class="stat-showcase-card">
+        <div class="stat-showcase-icon">
+          <i class="fas fa-code-branch"></i>
+        </div>
+        <div class="stat-showcase-number" id="tech-count">0</div>
+        <div class="stat-showcase-label">Technologies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scroll to Top -->
+<button id="scroll-top" class="scroll-top-btn">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Scripts -->
+<script src="data.js"></script>
+<script>
+  // Theme Toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+  const iconSun = document.getElementById('icon-sun');
+  const iconMoon = document.getElementById('icon-moon');
+  
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  html.setAttribute('data-theme', savedTheme);
+  updateThemeIcons(savedTheme);
+  
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcons(newTheme);
+  });
+  
+  function updateThemeIcons(theme) {
+    if (theme === 'dark') {
+      iconSun.classList.add('hidden');
+      iconMoon.classList.remove('hidden');
+    } else {
+      iconSun.classList.remove('hidden');
+      iconMoon.classList.add('hidden');
+    }
+  }
+
+  // Render All Projects
+  const container = document.getElementById('all-projects-grid');
+  const searchInput = document.getElementById('search-input');
+  const searchClear = document.getElementById('search-clear');
+  const quickFilters = document.querySelectorAll('.filter-chip');
+  const toggleFiltersBtn = document.getElementById('toggle-filters');
+  const filterContainer = document.getElementById('filter-container');
+  const filterSort = document.getElementById('filter-sort');
+  const filterStatus = document.getElementById('filter-status');
+  const filterCategory = document.getElementById('filter-category');
+  const filterYear = document.getElementById('filter-year');
+  
+  let currentQuickFilter = 'all';
+  let searchQuery = '';
+  
+  // Toggle Advanced Filters
+  toggleFiltersBtn.addEventListener('click', () => {
+    filterContainer.classList.toggle('visible');
+    toggleFiltersBtn.classList.toggle('active');
+  });
+  
+  // Search functionality
+  searchInput.addEventListener('input', (e) => {
+    searchQuery = e.target.value.toLowerCase();
+    searchClear.classList.toggle('visible', searchQuery.length > 0);
+    displayProjects();
+  });
+  
+  searchClear.addEventListener('click', () => {
+    searchInput.value = '';
+    searchQuery = '';
+    searchClear.classList.remove('visible');
+    displayProjects();
+  });
+  
+  // Quick Filters
+  quickFilters.forEach(chip => {
+    chip.addEventListener('click', () => {
+      quickFilters.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentQuickFilter = chip.dataset.filter;
+      displayProjects();
+    });
+  });
+  
+  function displayProjects() {
+    let filtered = [...PROJECTS];
+    
+    // Apply search
+    if (searchQuery) {
+      filtered = filtered.filter(p => 
+        p.title.toLowerCase().includes(searchQuery) ||
+        p.description.toLowerCase().includes(searchQuery) ||
+        (p.techStack && p.techStack.some(tech => tech.toLowerCase().includes(searchQuery))) ||
+        p.categories.some(cat => cat.toLowerCase().includes(searchQuery))
+      );
+    }
+    
+    // Apply quick filter
+    if (currentQuickFilter !== 'all') {
+      if (currentQuickFilter === 'Ongoing' || currentQuickFilter === 'Finished') {
+        filtered = filtered.filter(p => p.status === currentQuickFilter);
+      } else {
+        filtered = filtered.filter(p => p.categories.includes(currentQuickFilter));
+      }
+    }
+    
+    // Apply advanced filters
+    const status = filterStatus.value;
+    const category = filterCategory.value;
+    const year = filterYear.value;
+    const sort = filterSort.value;
+    
+    if (status !== 'all') {
+      filtered = filtered.filter(p => p.status === status);
+    }
+    
+    if (category !== 'all') {
+      filtered = filtered.filter(p => p.categories.includes(category));
+    }
+    
+    if (year !== 'all') {
+      filtered = filtered.filter(p => p.year.toString() === year);
+    }
+    
+    // Sort
+    if (sort === 'newest') {
+      filtered.sort((a, b) => b.year - a.year);
+    } else {
+      filtered.sort((a, b) => a.year - b.year);
+    }
+    
+    // Render
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state" style="grid-column: 1/-1;">
+          <div class="empty-state-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>No projects found</h3>
+          <p>Try adjusting your search or filters to find what you're looking for.</p>
+        </div>
+      `;
+    } else {
+      container.innerHTML = filtered.map(project => `
+        <a href="projects/${project.id}.html" class="project-card">
+          <div class="project-header">
+            <div>
+              <h3 class="project-title">${project.title}</h3>
+              <div class="project-year">${project.year}</div>
+            </div>
+            <span class="project-status status-${project.status.toLowerCase()}">
+              ${project.status}
+            </span>
+          </div>
+          
+          <div class="project-categories">
+            ${project.categories.map(cat => `<span class="project-category">${cat}</span>`).join('')}
+          </div>
+          
+          <p class="project-description">${project.description}</p>
+          
+          ${project.techStack ? `
+            <div class="mt-4">
+              <h4 class="font-semibold mb-2 text-sm">Tech Stack:</h4>
+              <div class="flex flex-wrap gap-2">
+                ${project.techStack.slice(0, 4).map(tech => `
+                  <span class="text-xs px-2 py-1 bg-accent bg-opacity-10 text-accent rounded">${tech}</span>
+                `).join('')}
+                ${project.techStack.length > 4 ? `<span class="text-xs text-secondary">+${project.techStack.length - 4}</span>` : ''}
+              </div>
+            </div>
+          ` : ''}
+          
+          <div class="project-links mt-4">
+            ${project.github ? `
+              <span class="project-link">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+              </span>
+            ` : ''}
+            ${project.demo ? `
+              <span class="project-link">
+                <i class="fas fa-external-link-alt"></i>
+                <span>Demo</span>
+              </span>
+            ` : ''}
+          </div>
+        </a>
+      `).join('');
+    }
+    
+    updateStats();
+  }
+  
+  function updateStats() {
+    const totalCount = PROJECTS.length;
+    const ongoingCount = PROJECTS.filter(p => p.status === 'Ongoing').length;
+    const finishedCount = PROJECTS.filter(p => p.status === 'Finished').length;
+    const frontendCount = PROJECTS.filter(p => p.categories.includes('Frontend')).length;
+    const aiCount = PROJECTS.filter(p => p.categories.includes('AI')).length;
+    
+    // Count unique technologies
+    const allTech = new Set();
+    PROJECTS.forEach(p => {
+      if (p.techStack) {
+        p.techStack.forEach(tech => allTech.add(tech));
+      }
+    });
+    const techCount = allTech.size;
+    
+    // Update showcase stats
+    document.getElementById('total-projects-count').textContent = totalCount;
+    document.getElementById('ongoing-count').textContent = ongoingCount;
+    document.getElementById('finished-count').textContent = finishedCount;
+    document.getElementById('tech-count').textContent = techCount;
+    
+    // Update quick filter counts
+    document.getElementById('count-all').textContent = totalCount;
+    document.getElementById('count-ongoing').textContent = ongoingCount;
+    document.getElementById('count-finished').textContent = finishedCount;
+    document.getElementById('count-frontend').textContent = frontendCount;
+    document.getElementById('count-ai').textContent = aiCount;
+  }
+  
+  // Initial display
+  displayProjects();
+  
+  // Add event listeners to advanced filters
+  filterSort.addEventListener('change', displayProjects);
+  filterStatus.addEventListener('change', displayProjects);
+  filterCategory.addEventListener('change', displayProjects);
+  filterYear.addEventListener('change', displayProjects);
+
+  // Scroll to Top
+  const scrollTopBtn = document.getElementById('scroll-top');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  });
+  
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

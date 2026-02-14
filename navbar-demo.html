@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navbar Glass Demo</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+body{
+  margin:0;
+  min-height:300vh;
+  background:linear-gradient(180deg, #e0e5e9 0%, #f5f7f9 50%, #e0e5e9 100%);
+  padding-top:100px;
+  font-family: 'Inter', sans-serif;
+}
+.demo-section{
+  padding:3rem 2rem;
+  text-align:center;
+}
+.demo-section h1{
+  font-size:3rem;
+  color:#004E64;
+  margin-bottom:1rem;
+}
+.demo-section p{
+  font-size:1.2rem;
+  color:#4A5568;
+  max-width:600px;
+  margin:0 auto;
+}
+.checklist{
+  background:white;
+  padding:2rem;
+  border-radius:1rem;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  max-width:600px;
+  margin:2rem auto;
+  text-align:left;
+}
+.checklist li{
+  padding:0.5rem 0;
+  font-size:1.1rem;
+}
+.good{color:#10b981;}
+.bad{color:#ef4444;}
+</style>
+</head><body>
+
+<!-- NAVBAR GLASSMORPHISM -->
+<nav class="navbar-glass fixed top-0 w-full z-50">
+  <div class="container-custom">
+    <div class="flex justify-between items-center h-16 md:h-20">
+      <a href="#" class="accent-text text-xl md:text-2xl font-bold hover:opacity-80 transition-opacity">
+        Fara Fahirun
+      </a>
+      
+      <div class="flex items-center gap-3 md:gap-6">
+        <!-- Desktop Menu - Hidden on mobile, visible on md+ -->
+        <div class="hidden md:flex items-center gap-2 lg:gap-4">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-sun"></i>
+        </button>
+
+        <!-- Mobile Menu Button - Visible on mobile, hidden on md+ -->
+        <button id="mobile-menu-btn" class="md:hidden mobile-menu-btn" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden">
+    <div class="container-custom">
+      <div class="mobile-menu">
+        <a href="#home" class="mobile-nav-link">
+          <i class="fas fa-home mr-2"></i>Home
+        </a>
+        <a href="#about" class="mobile-nav-link">
+          <i class="fas fa-user mr-2"></i>About
+        </a>
+        <a href="#projects" class="mobile-nav-link">
+          <i class="fas fa-briefcase mr-2"></i>Projects
+        </a>
+        <a href="#skills" class="mobile-nav-link">
+          <i class="fas fa-code mr-2"></i>Skills
+        </a>
+        <a href="#testimonials" class="mobile-nav-link">
+          <i class="fas fa-star mr-2"></i>Testimonials
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- DEMO CONTENT -->
+<div id="home" class="demo-section">
+  <h1>🎨 NAVBAR GLASSMORPHISM</h1>
+  <p>Scroll halaman ini untuk melihat efek glass blur pada navbar</p>
+  
+  <div class="checklist">
+    <h3 style="margin-top:0;color:#004E64;">✅ Checklist - Yang Harus Terlihat:</h3>
+    <ul style="list-style:none;padding:0;">
+      <li><span class="good">✓</span> Navbar semi-transparent (bisa lihat background blur di belakang)</li>
+      <li><span class="good">✓</span> Desktop (≥768px): Menu Home|About|Projects|Skills|Testimonials terlihat</li>
+      <li><span class="good">✓</span> Mobile (<768px): Hamburger button (☰) terlihat</li>
+      <li><span class="good">✓</span> Saat scroll: Navbar jadi lebih solid/blur lebih jelas</li>
+      <li><span class="good">✓</span> Hover menu: Ada background subtle + underline</li>
+      <li><span class="good">✓</span> Klik hamburger: Menu dropdown dengan icons</li>
+    </ul>
+    
+    <h3 style="color:#ef4444;">❌ Yang TIDAK Seharusnya:</h3>
+    <ul style="list-style:none;padding:0;">
+      <li><span class="bad">✗</span> Background navbar solid putih/hitam</li>
+      <li><span class="bad">✗</span> Tidak ada blur effect</li>
+      <li><span class="bad">✗</span> Desktop juga muncul hamburger</li>
+      <li><span class="bad">✗</span> Mobile tidak ada hamburger button</li>
+    </ul>
+  </div>
+</div>
+
+<div id="about" class="demo-section">
+  <h1>👆 Lihat Navbar di Atas</h1>
+  <p>Scroll terus ke bawah untuk melihat perubahan blur effect</p>
+</div>
+
+<div id="projects" class="demo-section">
+  <h1>📏 Resize Browser</h1>
+  <p>Ubah lebar browser untuk test responsive:<br>
+  • Lebar > 768px → Full menu<br>
+  • Lebar < 768px → Hamburger button</p>
+</div>
+
+<div id="skills" class="demo-section">
+  <h1>🔄 Hard Reload</h1>
+  <p>Jika navbar masih terlihat lama (solid):<br><br>
+  <strong>Ctrl + Shift + R</strong> (Hard Reload)<br>
+  atau<br>
+  <strong>F12 → Application → Clear Storage → Clear site data</strong></p>
+</div>
+
+<script>
+// Mobile Menu Toggle
+const menuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = menuBtn?.querySelector('i');
+
+menuBtn?.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isHidden = mobileMenu.classList.toggle('hidden');
+  
+  if (menuIcon) {
+    if (isHidden) {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    } else {
+      menuIcon.classList.remove('fa-bars');
+      menuIcon.classList.add('fa-times');
+    }
+  }
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    if (menuIcon) {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    }
+  });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!menuBtn?.contains(e.target) && !mobileMenu?.contains(e.target)) {
+    mobileMenu?.classList.add('hidden');
+    if (menuIcon) {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    }
+  }
+});
+
+// Navbar Scroll Effect
+const navbar = document.querySelector('.navbar-glass');
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 50) {
+    navbar?.classList.add('scrolled');
+  } else {
+    navbar?.classList.remove('scrolled');
+  }
+});
+
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle?.querySelector('i');
+
+themeToggle?.addEventListener('click', () => {
+  const isDark = document.documentElement.hasAttribute('data-theme');
+  
+  if (isDark) {
+    document.documentElement.removeAttribute('data-theme');
+    themeIcon?.classList.remove('fa-moon');
+    themeIcon?.classList.add('fa-sun');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeIcon?.classList.remove('fa-sun');
+    themeIcon?.classList.add('fa-moon');
+  }
+});
+
+// Display current width
+window.addEventListener('resize', () => {
+  console.log('Window width:', window.innerWidth, 'px');
+});
+console.log('Initial width:', window.innerWidth, 'px');
+</script>
+
+</body></html>

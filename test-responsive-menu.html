@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Responsive Menu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      min-height: 200vh;
+      background: linear-gradient(#e0e5e9, #f5f7f9);
+      padding-top: 100px;
+    }
+    .test-info {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 100;
+      max-width: 300px;
+    }
+    .test-info h3 {
+      margin: 0 0 0.5rem 0;
+      color: #004E64;
+    }
+    .test-info p {
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+    }
+    .desktop-visible {
+      color: #10b981;
+      font-weight: bold;
+    }
+    .mobile-visible {
+      color: #ef4444;
+      font-weight: bold;
+    }
+    .demo-content {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .demo-content h1 {
+      font-size: 2.5rem;
+      color: #004E64;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar-glass fixed top-0 w-full z-50">
+  <div class="container-custom">
+    <div class="flex justify-between items-center h-16 md:h-20">
+      <a href="#" class="accent-text text-xl md:text-2xl font-bold">
+        Fara Fahirun
+      </a>
+      
+      <div class="flex items-center gap-3 md:gap-6">
+        <!-- Desktop Menu - hidden on mobile, flex on md+ -->
+        <div class="hidden md:flex items-center gap-2 lg:gap-4">
+          <a href="#" class="nav-link">Home</a>
+          <a href="#" class="nav-link">About</a>
+          <a href="#" class="nav-link">Projects</a>
+          <a href="#" class="nav-link">Skills</a>
+          <a href="#" class="nav-link">Testimonials</a>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle">
+          <i class="fas fa-sun"></i>
+        </button>
+
+        <!-- Mobile Menu Button - visible on mobile, hidden on md+ -->
+        <button id="mobile-menu-btn" class="md:hidden mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden">
+    <div class="container-custom">
+      <div class="mobile-menu">
+        <a href="#" class="mobile-nav-link">
+          <i class="fas fa-home mr-2"></i>Home
+        </a>
+        <a href="#" class="mobile-nav-link">
+          <i class="fas fa-user mr-2"></i>About
+        </a>
+        <a href="#" class="mobile-nav-link">
+          <i class="fas fa-briefcase mr-2"></i>Projects
+        </a>
+        <a href="#" class="mobile-nav-link">
+          <i class="fas fa-code mr-2"></i>Skills
+        </a>
+        <a href="#" class="mobile-nav-link">
+          <i class="fas fa-star mr-2"></i>Testimonials
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Demo Content -->
+<div class="demo-content">
+  <h1>📱 Test Responsive Navigation</h1>
+  <p style="font-size: 1.2rem; color: #4A5568; margin-bottom: 2rem;">
+    Resize browser untuk melihat perubahan menu
+  </p>
+  
+  <div style="background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto;">
+    <h3 style="color: #004E64; margin-bottom: 1rem;">✅ Expected Behavior:</h3>
+    
+    <div style="text-align: left; padding: 1rem; background: #f0fdf4; border-radius: 0.5rem; margin-bottom: 1rem;">
+      <p style="margin: 0; font-weight: bold; color: #10b981;">Desktop (≥768px):</p>
+      <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+        <li>✅ Full menu terlihat (Home|About|Projects|Skills|Testimonials)</li>
+        <li>✅ Hamburger button TERSEMBUNYI</li>
+        <li>✅ Theme toggle terlihat</li>
+      </ul>
+    </div>
+    
+    <div style="text-align: left; padding: 1rem; background: #fef2f2; border-radius: 0.5rem;">
+      <p style="margin: 0; font-weight: bold; color: #ef4444;">Mobile (<768px):</p>
+      <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+        <li>✅ Hamburger button terlihat</li>
+        <li>✅ Desktop menu TERSEMBUNYI</li>
+        <li>✅ Klik hamburger → dropdown muncul</li>
+        <li>✅ Theme toggle terlihat</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Live Info Display -->
+<div class="test-info">
+  <h3>Live Info</h3>
+  <p>Width: <span id="width-display">-</span>px</p>
+  <p id="mode-display">Mode: -</p>
+  <p id="desktop-menu-status">Desktop Menu: -</p>
+  <p id="mobile-btn-status">Mobile Button: -</p>
+</div>
+
+<script>
+// Mobile Menu Toggle
+const menuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = menuBtn?.querySelector('i');
+
+menuBtn?.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isHidden = mobileMenu.classList.toggle('hidden');
+  
+  if (menuIcon) {
+    if (isHidden) {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    } else {
+      menuIcon.classList.remove('fa-bars');
+      menuIcon.classList.add('fa-times');
+    }
+  }
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    if (menuIcon) {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    }
+  });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!menuBtn?.contains(e.target) && !mobileMenu?.contains(e.target)) {
+    mobileMenu?.classList.add('hidden');
+    if (menuIcon) {
+      menuIcon.classList.remove('fa-times');
+      menuIcon.classList.add('fa-bars');
+    }
+  }
+});
+
+// Navbar Scroll Effect
+const navbar = document.querySelector('.navbar-glass');
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 50) {
+    navbar?.classList.add('scrolled');
+  } else {
+    navbar?.classList.remove('scrolled');
+  }
+});
+
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle?.querySelector('i');
+
+themeToggle?.addEventListener('click', () => {
+  const isDark = document.documentElement.hasAttribute('data-theme');
+  
+  if (isDark) {
+    document.documentElement.removeAttribute('data-theme');
+    themeIcon?.classList.remove('fa-moon');
+    themeIcon?.classList.add('fa-sun');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeIcon?.classList.remove('fa-sun');
+    themeIcon?.classList.add('fa-moon');
+  }
+});
+
+// Display current width and menu visibility
+function updateDisplay() {
+  const width = window.innerWidth;
+  const widthDisplay = document.getElementById('width-display');
+  const modeDisplay = document.getElementById('mode-display');
+  const desktopStatus = document.getElementById('desktop-menu-status');
+  const mobileStatus = document.getElementById('mobile-btn-status');
+  
+  widthDisplay.textContent = width;
+  
+  if (width >= 768) {
+    modeDisplay.innerHTML = 'Mode: <span class="desktop-visible">DESKTOP</span>';
+    desktopStatus.innerHTML = 'Desktop Menu: <span class="desktop-visible">VISIBLE ✓</span>';
+    mobileStatus.innerHTML = 'Mobile Button: <span style="color:#999">HIDDEN</span>';
+  } else {
+    modeDisplay.innerHTML = 'Mode: <span class="mobile-visible">MOBILE</span>';
+    desktopStatus.innerHTML = 'Desktop Menu: <span style="color:#999">HIDDEN</span>';
+    mobileStatus.innerHTML = 'Mobile Button: <span class="mobile-visible">VISIBLE ✓</span>';
+  }
+}
+
+updateDisplay();
+window.addEventListener('resize', updateDisplay);
+</script>
+
+</body>
+</html>
