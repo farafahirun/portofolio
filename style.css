@@ -200,6 +200,90 @@ section {
   padding-bottom: clamp(2rem, 5vh, 4rem);
 }
 
+.home-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Decoration */
+.hero-bg-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, var(--accent) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, var(--accent) 0%, transparent 50%);
+  opacity: 0.03;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Floating Shapes */
+.floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.05;
+  animation: float 20s infinite ease-in-out;
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  top: 60%;
+  right: 10%;
+  animation-delay: 5s;
+}
+
+.shape-3 {
+  width: 150px;
+  height: 150px;
+  bottom: 20%;
+  left: 50%;
+  animation-delay: 10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+
+.home-hero .container-custom {
+  position: relative;
+  z-index: 1;
+}
+
 /* Other sections consistent spacing */
 #about, #skills, #projects, #contact, #timeline {
   padding: clamp(3rem, 8vw, 6rem) 0;
@@ -522,7 +606,7 @@ section {
 .btn-primary,
 .btn-secondary,
 .btn-outline {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1.5rem;
@@ -535,15 +619,15 @@ section {
   font-size: 1rem;
   white-space: nowrap;
   text-align: center;
+  width: 100%;
 }
 
 @media (max-width: 640px) {
   .btn-primary,
   .btn-secondary,
   .btn-outline {
-    padding: 0.625rem 1.25rem;
+    padding: 0.625rem 1rem;
     font-size: 0.9rem;
-    width: 100%;
   }
 }
 
@@ -581,6 +665,17 @@ section {
   background-color: var(--accent);
   color: white;
   transform: translateY(-2px);
+}
+
+/* CTA Buttons - Force 2 columns at all sizes */
+.cta-buttons-container {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+}
+
+.cta-btn {
+  flex: 1 1 0px !important;
+  min-width: 0 !important;
 }
 
 /* =====================================================
@@ -781,6 +876,59 @@ section {
 
 .social-btn i {
   font-size: 1rem;
+}
+
+/* Responsive Social Buttons - Hide text on small screens */
+.social-btn-responsive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+}
+
+.social-btn-responsive:hover {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.social-btn-responsive i {
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+/* Hide text on small screens (mobile) */
+.social-btn-responsive .social-text {
+  display: none;
+}
+
+/* Show text on medium screens and up (tablet+) */
+@media (min-width: 640px) {
+  .social-btn-responsive {
+    padding: 0.625rem 1rem;
+    min-width: auto;
+  }
+  
+  .social-btn-responsive .social-text {
+    display: inline;
+  }
+  
+  .social-btn-responsive i {
+    font-size: 1rem;
+  }
 }
 
 /* =====================================================
@@ -1880,7 +2028,7 @@ section {
 .gap-10 { gap: 2.5rem; }
 
 .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
-.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
 
 .flex-wrap { flex-wrap: wrap; }
 .flex-col { flex-direction: column; }
@@ -2027,10 +2175,6 @@ ul.list-disc.list-inside li {
   h1 { font-size: 1.75rem; }
   h2 { font-size: 1.5rem; }
   h3 { font-size: 1.25rem; }
-  
-  .grid-cols-2 {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 
 @media (max-width: 768px) {
@@ -2073,6 +2217,14 @@ ul.list-disc.list-inside li {
   
   .md\:flex-row {
     flex-direction: row;
+  }
+  
+  .md\:text-left {
+    text-align: left !important;
+  }
+  
+  .md\:justify-start {
+    justify-content: flex-start !important;
   }
   
   .md\:hidden {
